@@ -1,0 +1,42 @@
+.ImageHomeBackGround {
+    background-image: url("../img/recadre.jpg");
+    width: 1024px;
+    height: 720px;
+    background-size: cover;
+    background-position: center;
+}
+
+.Parchemin {
+    position: relative;
+    top: 30px;
+    left: 50px;
+    background-image:  url("../img/parchemin.png");
+    background-size: cover;
+    background-position: center;
+    width: 600px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.TitreParchemin {
+    text-shadow: blanchedalmond 3px 3px 7px;
+    padding: 70px 20% ;
+    width: 60%;
+    font-weight: 700;
+}
+
+.ContenuParchemin {
+    text-shadow: blanchedalmond 3px 3px 7px;
+    padding: 0 25% 80px;
+    width: 50%;
+    font-weight: 500;
+}
+
+.FooterParchemin {
+    text-shadow: blanchedalmond 3px 3px 7px;
+    padding: 0 20% 70px;
+    width: 60%;
+    font-weight: 500;
+}
