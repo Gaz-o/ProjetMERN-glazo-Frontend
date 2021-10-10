@@ -1,0 +1,7 @@
+.ImageFameBackGround {
+    background-image: url("../img/fame.png");
+    width: 1024px;
+    height: 720px;
+    background-size: cover;
+    background-position: center;
+}

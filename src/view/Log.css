@@ -6,15 +6,58 @@
     background-position: center;
 }
 
-.Formulaire {
+.ParcheminLog {
+    position: relative;
+    top: 30px;
+    left: 50px;
+    background-image:  url("../img/parchemin.png");
+    background-size: cover;
+    background-position: center;
+    width: 600px;
+    height: 600px;
+}
+
+.ConteneurLog {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10% 20% ;
+    width: 60%;
+    height: 80%;
+}
+
+.TitreLog {
+    text-shadow: blanchedalmond 3px 3px 7px;
+    font-weight: 700;
+    margin-top: 10px;
+}
+
+.ContenuLog {
+    text-shadow: blanchedalmond 3px 3px 7px;
+    font-weight: 500;
+}
+
+.BtnLog {
+    width: 100px;
+    margin: 0 auto;
+    background-image: url("../img/marbre.jpg");
+    padding: 8px;
+    border: 2px solid #414042;
+    border-radius: 4px;
+    box-shadow: 2px 2px 2px black;
+    color: rgb(0, 0, 0);
+    font-weight: 500;
+    text-shadow: blanchedalmond 2px 2px 5px;
+}
+
+.Log {
     display: flex;
     justify-content: center;
     flex-direction: column;    
     align-items: center;
-    height: 100%;
 }
 
-.FormulaireInput {
+.LogInput {
     display: flex;
     flex-direction: column;
     background-image: url("../img/marbre.jpg");
@@ -29,20 +72,20 @@
     text-shadow: blanchedalmond 2px 2px 5px;
 }
 
-.FormulaireInput p {
+.LogInput p {
     text-shadow: blanchedalmond 3px 3px 7px;
     padding:  0 5px;
     font-weight: 500;
 }
 
-.FormulaireInput input {
+.LogInput input {
     margin: 5px;
     padding: 5px 0;
     border-radius: 4px;
     box-shadow: 2px 2px 2px black;
 }
 
-.BtnConnect {
+.BtnLogConnect {
     margin: 10px 25px 5px;
     display: block;
     background-color: rgba(255, 255, 255, 0.555);
@@ -52,3 +95,10 @@
     border-radius: 6px;
     box-shadow: 2px 2px 2px black;
 }
+
+.FooterLog {
+    text-shadow: blanchedalmond 3px 3px 7px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+

@@ -15,7 +15,7 @@ function Home() {
   return (
     <div>
       <div className="ImageHomeBackGround"> 
-        <div className="Parchemin">
+        <div className="ParcheminHome">
           <p className="TitreParchemin">Bonjour Cher Sponsor</p>
           <p className="ContenuParchemin"> {contenu} </p>
           <p className="FooterParchemin"> Toute l'équipe du colisé vous remerci d'avoir prix le temps de nous lire </p>

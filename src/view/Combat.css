@@ -1,0 +1,7 @@
+.ImageCombatBackGround {
+    background-image: url("../img/combat.jpg");
+    width: 1024px;
+    height: 720px;
+    background-size: cover;
+    background-position: center;
+}
