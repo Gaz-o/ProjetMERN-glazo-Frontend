@@ -1,13 +1,21 @@
 import { useEffect, useState } from "react"
+import Service from "../services";
 import "./Log.css"
 import Connect from "./Log/connect";
 
 function Connexion(props) {
-    const [BtnLog, setBtnLog] = useState("Inscription");
     const [Contenu, setContenu] = useState("");
     const [Affichage, setAffichage] = useState("");
 
     let connecter = props.connecter
+
+    const btnLogOut = async () => {
+        let path = "/user/logout"
+        localStorage.removeItem("jwt")
+        props.setIsConnect(false)
+        let logout = await Service.post(path)
+        console.log(logout);
+    }
 
     function deconnect() {
         return (
@@ -15,23 +23,14 @@ function Connexion(props) {
                 <div className="LogInput">
                     <p>Merci de votre</p>
                     <p>passage</p>
-                    <p className="BtnLogConnect">Deconnecter</p>
+                    <p className="BtnLogConnect" onClick={btnLogOut}>Deconnecter</p>
                 </div>
             </form>
         )
     }
 
-    const btnLog = () => {
-        if (BtnLog === "Inscription") {
-            setBtnLog("Connexion");
-        } else {
-            setBtnLog("Inscription");
-
-        }
-    };
-
     useEffect(() => {
-        if (connecter === "Deconnexion") {
+        if (connecter === true) {
             setAffichage("Deconnexion");
             setContenu("J'espere que les Dieux etait avec vous aujourd'hui");
         } else {
@@ -48,15 +47,13 @@ function Connexion(props) {
                     <div className="ConteneurLog">
                         <p className="TitreLog">Bonjour Cher Sponsor</p>
                         <p className="ContenuLog"> {Contenu} </p>
-                        {connecter !== "Deconnexion" ? <p className="BtnLog" onClick={btnLog}>{BtnLog}</p> : ""}
-                        {Affichage !== "Deconnexion" ? Connect(BtnLog) : deconnect()}
+                        {Affichage !== "Deconnexion" ? <Connect {...props}/> : deconnect()}
                         <p className="FooterLog"> Toute l'équipe du colisé vous remerci d'avoir prix le temps de nous lire </p>
                     </div>
                 </div>
             </div>
         </div>
     )
-
 }
 
 export default Connexion;

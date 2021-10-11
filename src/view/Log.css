@@ -39,7 +39,7 @@
 
 .BtnLog {
     width: 100px;
-    margin: 0 auto;
+    margin: 0 auto 20px;
     background-image: url("../img/marbre.jpg");
     padding: 8px;
     border: 2px solid #414042;

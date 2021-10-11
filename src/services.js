@@ -52,6 +52,13 @@ const Service = {
     postForm(formResults){
         // Equivaut à faire : axios.post('http://localhost:5000/users/admin')
         return this.post('/form', formResults)
+    },
+    getInfos(){
+        const token = localStorage.getItem("jwt");
+        const headers = {
+            Authorization: "Bearer " + token,
+        };
+        return base.get("/user/info", {headers:headers})
     }
 }
 
