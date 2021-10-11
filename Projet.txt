@@ -1,0 +1,51 @@
+Mini-projet de développement d'une application fullstack
+Objectifs:
+
+Développer une application web front-end avec ReactJS
+Développer une application web back-end avec NodeJS et ExpressJS
+Créer et utiliser une base de données MongoDB
+Structurer un projet
+ 
+Sujet: 
+
+Le sujet de ce mini-projet est libre. Il doit toutefois respecter les contraintes suivantes:
+
+Le projet doit impliquer la création et l'affichage de contenu dynamique (posts, produits, etc...).
+Le projet doit être constitué de plusieurs pages.
+Des componsants réutilisables (menus, etc...) doivent être développés.
+Une structure propre et cohérente doit être définie.
+La partie front-end doit être réalisée avec ReactJS
+La partie back-end doit être une API web réalisée avec Express et MongoDB
+Les échanges entre front-end et back-end doivent être effectuées avec fetch et sous forme de données en JSON
+Avant de commencer, effectuez un point de projet:
+
+Identifiez les fonctionnalités nécessitant une ou plusieurs requêtes vers le back-end, page par page. Au cours de cette phase, 
+vous devez produire une version préliminaire d'une documentation d'API web. Pour cela, documentez chaque route que vous devrez créer en indiquant le chemin, 
+le verbe, les éventuelles données envoyées et les réponses possibles.
+Identifiez toutes les informations et organisez les pour obtenir un schéma de structure de votre base de données.
+A la fin de cette étape, prévenez l'intervenant pour faire un point.
+Prenez bien le temps lors de cette étape, la précipitation pourrait vous faire oublier des points importants et ajouter beaucoup de travail par la suite.
+
+Préparation du projet:
+
+Créer une application front-end avec "npx create-react-app nom_de_votre_app_front"
+Créer une application back-end avec "npx express-generator --no-view nom_de_votre_app_back-end" et n'oubliez pas de supprimer le fichier index.html
+Préparer votre projet back-end en installant les modules adéquats comme nodemon et mongoose. N'oubliez pas de modifier le script "npm start" pour y ajouter la commande nodemon. 
+Vous devez également modifier le port de l'application back-end fin qu'elle ne rentre pas en conflit avec le serveur de développement de votre application front-end.
+Créez vos dossiers pour structurer votre projet (projet front-end et back-end). Vous pouvez également, lors de cette étape, 
+créer tous les fichiers routeurs sans y écrire de route et les importer dans app.js. Pour cela aidez vous de la version initale de votre documentation d'API web.
+A la fin de cette étape, prévenez l'intervenant pour faire un point.
+Vous pouvez maintenant commencer à développer.
+
+Pour le développement de chaque fonctionnalité, ou route, vous pouvez suivre la démarche suivante:
+
+Ecrivez la route et créez la méthode correspondante dans le contrôleur (créez le également si besoin). Pour commencer, ajoutez un réponse simple dans la méthode, 
+comme res.send par exemple. Anisi, vous pourrez alors tester le bon fonctionnement de la route et du contrôleur via Postman.
+[Optionnel] Si besoin, créez le ou les modèles correspondants aux données nécessaires au développement de la fonctionnalité.
+Développez la fonctionnalités dans la méthode de votre contrôleur. Pensez à bien importer les modules et modèles dont vous avez besoin.
+Testez la fonctionnalité avec Postman en envoyant une requête contenant d'éventuelles données de test sur la route correspondante. 
+Pour vérifer la bonne excution des transactions bases de données s'il y a lieu, vous pouvez consulter votre base de données MongoDB avec Robo3T.
+A cette étape, recommencez à l'étape 1 si vous souhaitez intégrer plusieurs routes, par exemple pour intégrer un ensemble de fonctionnalités disponible sur un seul et même component côté front-end.
+Intégrez la requête sur votre component dans votre application front-end. Commencez par la tester avec des données de test et en affichant les réponses dans des console.log.
+Lorsque la requête fonctionne, vous pouvez alors utiliser les données réelles (provenant en général du state) lors de l'envoi de la requête et récupérer 
+(également dans le state) les données qui vous intéressent puis les afficher.

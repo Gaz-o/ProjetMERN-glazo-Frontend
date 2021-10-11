@@ -16,7 +16,10 @@ function NavBar() {
       *userConnexion
   */
     const [isConnect, setIsConnect] = useState(true)
-    //const [isConnect, setIsConnect] = useState(false)
+
+    if (isConnect !== true) {
+      setIsConnect(true)
+    }
 
     let connecter
     // recup les infode connection ry setIsConnect

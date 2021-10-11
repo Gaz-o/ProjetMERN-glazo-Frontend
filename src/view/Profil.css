@@ -1,7 +1,104 @@
 .ImageProfilBackGround {
-    background-image: url("../img/recadre.jpg");
+    background-image: url("../img/profil.jpg");
     width: 1024px;
     height: 720px;
     background-size: cover;
     background-position: center;
+}
+
+.ParcheminProfil {
+    position: relative;
+    top: 30px;
+    left: 50px;
+    background-image:  url("../img/parchemin.png");
+    background-size: cover;
+    background-position: center;
+    width: 600px;
+    height: 600px;
+}
+
+.ConteneurProfil {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10% 20% ;
+    width: 60%;
+    height: 80%;
+}
+
+.TitreProfil {
+    text-shadow: blanchedalmond 3px 3px 7px;
+    font-weight: 700;
+    margin-top: 10px;
+}
+
+.ContenuProfil {
+    text-shadow: blanchedalmond 3px 3px 7px;
+    font-weight: 500;
+}
+
+.BtnProfil {
+    width: 100px;
+    margin: 0 auto;
+    background-image: url("../img/marbre.jpg");
+    padding: 8px;
+    border: 2px solid #414042;
+    border-radius: 4px;
+    box-shadow: 2px 2px 2px black;
+    color: rgb(0, 0, 0);
+    font-weight: 500;
+    text-shadow: blanchedalmond 2px 2px 5px;
+}
+
+.Profil {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;    
+    align-items: center;
+}
+
+.ProfilDivInput {
+    display: flex;
+    flex-direction: column;
+    background-image: url("../img/marbre.jpg");
+    align-content: center;
+    padding: 8px;
+    border: 2px solid #414042;
+    border-radius: 4px;
+    box-shadow: 2px 2px 2px black;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-weight: 500;
+    text-shadow: blanchedalmond 2px 2px 5px;
+}
+
+.ProfilP {
+    text-shadow: rgb(255, 255, 255) 1px 1px 5px;
+    padding:  0 5px;
+    font-weight: 500;
+    margin: 5px;
+}
+
+.ProfilInput {
+    padding: 5px 0;
+    border-radius: 4px;
+    box-shadow: 2px 2px 2px black;
+}
+
+.BtnProfilConnect {
+    margin: 10px auto 5px;
+    padding: 3px 5px;
+    display: block;
+    background-color: rgba(255, 255, 255, 0.555);
+    text-shadow: blanchedalmond 1px 1px 5px;
+    font-weight: 500;
+    border: 2px solid #414042;
+    border-radius: 6px;
+    box-shadow: 2px 2px 2px black;
+}
+
+.FooterProfil {
+    text-shadow: blanchedalmond 3px 3px 7px;
+    font-weight: 500;
+    margin-bottom: 10px;
 }

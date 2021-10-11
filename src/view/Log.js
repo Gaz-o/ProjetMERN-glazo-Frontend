@@ -1,44 +1,15 @@
 import { useEffect, useState } from "react"
 import "./Log.css"
+import Connect from "./Log/connect";
 
 function Connexion(props) {
     const [BtnLog, setBtnLog] = useState("Inscription");
     const [Contenu, setContenu] = useState("");
-    const [Affichage, setAffichage]  = useState("");
+    const [Affichage, setAffichage] = useState("");
 
     let connecter = props.connecter
 
-    function connect (isLog) {
-        if (isLog === "Inscription") {
-            return (
-                <form className="Log">
-                    <div className="LogInput">
-                        <p>Votre address mail</p>
-                        <input type="email" name="mail" placeholder=""></input>
-                        <p>Votre code secret</p>
-                        <input type="password" name="password" placeholder=""></input>
-                        <p className="BtnLogConnect">Connecter</p>
-                    </div>
-                </form>
-            )
-        } else {
-            return (
-                <form className="Log">
-                    <div className="LogInput">
-                        <p>Votre Pseudo</p>
-                        <input type="text" name="pseudo" placeholder=""></input>
-                        <p>Votre address mail</p>
-                        <input type="email" name="mail" placeholder=""></input>
-                        <p>Votre code secret</p>
-                        <input type="password" name="password" placeholder=""></input>
-                        <p className="BtnLogConnect">Création</p>
-                    </div>
-                </form>
-            )
-        }
-    }
-
-    function deconnect () {
+    function deconnect() {
         return (
             <form className="Log">
                 <div className="LogInput">
@@ -57,7 +28,7 @@ function Connexion(props) {
             setBtnLog("Inscription");
 
         }
-      };
+    };
 
     useEffect(() => {
         if (connecter === "Deconnexion") {
@@ -68,17 +39,17 @@ function Connexion(props) {
             setContenu(`Si vous souhaiter créer un nouveau Sponsor 
         prennez une autre pierre`);
         }
-    }, []);
+    }, [connecter]);
 
     return (
-        <div> 
+        <div>
             <div className="ImageLogBackGround">
                 <div className="ParcheminLog">
                     <div className="ConteneurLog">
                         <p className="TitreLog">Bonjour Cher Sponsor</p>
                         <p className="ContenuLog"> {Contenu} </p>
-                        {connecter !== "Deconnexion"? <a className="BtnLog" onClick={btnLog}>{BtnLog}</a>: ""}
-                        {Affichage !== "Deconnexion"? connect(BtnLog): deconnect()}
+                        {connecter !== "Deconnexion" ? <p className="BtnLog" onClick={btnLog}>{BtnLog}</p> : ""}
+                        {Affichage !== "Deconnexion" ? Connect(BtnLog) : deconnect()}
                         <p className="FooterLog"> Toute l'équipe du colisé vous remerci d'avoir prix le temps de nous lire </p>
                     </div>
                 </div>
@@ -86,6 +57,6 @@ function Connexion(props) {
         </div>
     )
 
-  }
-  
-  export default Connexion;
+}
+
+export default Connexion;

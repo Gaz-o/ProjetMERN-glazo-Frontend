@@ -1,0 +1,114 @@
+Font-end
+    - Halle des combatants/GET
+        - verification de connection avec affichage de la barre nav dynamique
+            *userConnexion
+        - Compte/connection/GET {création/POST edition/POST supression/DELETE}
+            - navbar qui rend l'affichage dynamique du contenue
+                - si connecté 
+                    - modifier/POST
+                        *userModification
+                    - suprimer/DELETE
+                        *userSuppretion
+                    - deconnecter/GET}
+                        *userDeconnexion
+                - si pas connecté 
+                    - connecter/POST
+                        *userConnexion
+                    - creer/POST
+                        *userCreation
+            - view dynamique entre les choix disponible
+        - Personnage/Si connecté/GET
+            - view 
+                - si personnage vivant le montrer avec descriptif
+                    *userPersonnageInfo/OBJ
+                - si mort faire un recap du dernier personnage et proposer d'en recréer un
+                    *personnageCreation
+                    *userPersonnageInfo/OBJ
+                - hall of fame perso avec affichage max des 5 meilleurs combatants avec leur commentaires
+                    *userPersonnageInfo/OBJ
+        - Hall of fame/GET {Mise en lumiere des meilleur combatant avec possibilité de laissé un message/POST par compte/si connecté}
+            *allPersonnageInfo
+            - si pas connecter montrer juste les 10 meilleurs combatant de tout les temps et un filtre pour le mois dernier et semaine
+            - si connecté tout pareil mais avec la possibilité de laisser un commentaire par personnage et de voir les 10 derniers commentaires
+        - Partie combat 
+            - chaque combat ce deroule avec 4 choix a la façon de PKM ATK DEF OBJ fuite
+                *allPersonnageInfo
+                *userPersonnageInfo
+            - entre chaque combat un element aléatoire
+                *allEvenementInfo
+            - entre chaque combat un vendeur
+                *allEquipementInfo
+            - sauvegarde du personnage a chaque validation d'étape
+                *personnageSauvegarde
+        - Forge
+            - contact pour soumettre un evenement ou un équipement a un MJ(admin)
+                *addEvenement
+                *addEquipement
+
+Back-end
+    - route
+        - une principale dans un fichier mais toute les sous route auront un fichier middleware avec au moins un notre fichier pour gerrer les controllers
+    - base de données
+        - utilisateur {id:num, email:str, password:hash(password), pseudo:str, age:num, bio:str, genre:str}
+        - personnage {proprietaire:user, pseudoPersonnage:str, visuel:str, stats{for:num, def:num, agi:num, pv:num}, bio:str, equipements{tete:num, torse:num, jambe:num, mainGauche:num, mainDroit:num, ceinture:[], reputation:num, argent:num}}
+        - equipement {type:str, nom:str, effet:{}, placement:str, reputation:num, prix:num}
+        - evenement {type:str, nom:str, effet:{}, reputation:num, argent:num}
+    - API
+        - user
+            - userConnexion/booleen
+                -req ( pseudo, password)
+                -res ( booleen, message)
+            - userInfo/OBJ
+                -req ( infoConnexion )
+                -res ( OBJ{user}, message )
+            - userCreation/booleen
+                -req ( userConnexion, pseudo, password, email)
+                -res ( booleen, message)
+            - userModification/booleen
+                -req ( infoConnexion, pseudo, age, bio, genre)
+                -res ( booleen, message)
+            - userSuppretion/booleen
+                -req ( infoConnexion )
+                -res ( booleen, message )
+            - userDeconnexion/booleen
+                -req ( infoConnexion )
+                -res ( booleen, message )
+        - personnage
+            - personnageCreation/booleen
+                -req ( pseudo, stats{for:num, def:num, agi:num, pv:num}, bio, equipements{})
+                -res ( booleen, message)
+            - personnageSauvegarde/booleen
+                -req ( pseudo, stats{for:num, def:num, agi:num, pv:num}, equipement{})
+                -res ( booleen, message)
+            - userPersonnageInfo/OBJ
+                -req ( userInfo )
+                -res ( OBJ{personnage}, message )
+            - allPersonnageInfo/OBJ
+                -req (  )
+                -res ( OBJ{personnage}, message )
+        - equipement
+            - allEquipementInfo/OBJ
+                -req (  )
+                -res ( OBJ{equipement}, message)
+            - addEquipement/booleen
+                -req (type, nom, effet{}, placement, reputation, prix)
+                -res ( booleen, message)
+        - evenement
+            - allEvenementInfo/OBJ
+                -req (  )
+                -res ( OBJ{evenement}, message)
+            - addEvenement/booleen
+                -req (type, nom, effet{})
+                -res ( booleen, message)
+
+package utilisé 
+
+- front
+    ReactJS             npx create-react-app GlAZO    
+    React Router dom    npm install react-router-dom
+    Axios               npm install axios
+- back
+    ExpressJS           npx express-generator GlAZO --no-view   
+    nodemon             script a modifier en dev npm run dev
+    Validator           npm i validator
+    mongoose            npm i mongoose
