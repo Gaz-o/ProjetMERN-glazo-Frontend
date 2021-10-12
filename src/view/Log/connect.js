@@ -6,6 +6,8 @@ function Connect(props) {
   const [Mail, setMail] = useState("");
   const [Password, setPassword] = useState("");
   const [BtnLog, setBtnLog] = useState("Inscription");
+  const [ErrMessage, setErrMessage] = useState("");
+  
 
   let connecter = props.connecter;
   let setIsConnect = props.setIsConnect;
@@ -13,7 +15,6 @@ function Connect(props) {
   const setter = (set, e) => {
     set(e.target.value);
   };
-  
   const btnCreation = async () => {
     let path = "/user/add";
     let body = {
@@ -21,23 +22,25 @@ function Connect(props) {
       mail: Mail,
       password: Password,
     };
-    let creation = await Service.post(path, body);
+    let creation = await Service.post(path, body)
     if (creation.data.success) {
-      let path2 = "/user/login";
-      let body2 = {
+      let path = "/user/login";
+      let body = {
         mail: Mail,
         password: Password,
       };
-      let isConnecter = await Service.post(path2, body2);
-      console.log(isConnecter, "isConnecter 32 /connect");
-      localStorage.setItem("jwt", isConnecter.data.token);
-      setIsConnect(isConnecter.data.success);
-      setPseudo("");
-      setMail("");
-      setPassword("");
+      let isConnecter = await Service.post(path, body);
+      if (isConnecter.data.success) {
+        localStorage.setItem("jwt", isConnecter.data.token);
+        setIsConnect(isConnecter.data.success);
+        setPseudo("");
+        setMail("");
+        setPassword("");
+      } else {
+        setErrMessage(isConnecter.data.message)
+      }
     }
-    console.log(creation, "creation 39 /connect");
-  };
+  }
 
   const btnConnecter = async () => {
     let path = "/user/login";
@@ -45,16 +48,15 @@ function Connect(props) {
       mail: Mail,
       password: Password,
     };
-    try {
-      let isConnecter = await Service.post(path, body);
-      console.log(isConnecter.data);
+    let isConnecter = await Service.post(path, body);
+    if (isConnecter.data.success) {
       localStorage.setItem("jwt", isConnecter.data.token);
       setIsConnect(isConnecter.data.success);
       setPseudo("");
       setMail("");
       setPassword("");
-    } catch (err) {
-      console.log(err, "err 57 /connect");
+    } else {
+      setErrMessage(isConnecter.data.message)
     }
   };
 
@@ -83,20 +85,21 @@ function Connect(props) {
           ""
         )}
         <div className="LogInput">
-          <p>Votre address mail</p>
+          <p className="LogInputP">Votre address mail</p>
           <input
             type="email"
             name="mail"
             value={Mail}
             onChange={(e) => setter(setMail, e)}
           ></input>
-          <p>Votre code secret</p>
+          <p className="LogInputP">Votre code secret</p>
           <input
             type="password"
             name="password"
             value={Password}
             onChange={(e) => setter(setPassword, e)}
           ></input>
+          <p className="ErrMessage">{ErrMessage}</p>
           <p className="BtnLogConnect" onClick={btnConnecter}>
             Connecter
           </p>
@@ -135,6 +138,7 @@ function Connect(props) {
             value={Password}
             onChange={(e) => setter(setPassword, e)}
           ></input>
+          <p className="ErrMessage">{ErrMessage}</p>
           <p className="BtnLogConnect" onClick={btnCreation}>
             Création
           </p>
