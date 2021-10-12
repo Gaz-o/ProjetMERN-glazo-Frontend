@@ -59,6 +59,16 @@ const Service = {
             Authorization: "Bearer " + token,
         };
         return base.get("/user/info", {headers:headers})
+    },
+    postLogout(){
+        localStorage.removeItem("jwt")
+        return base.get("/user/logout")
+    },
+    deleteProfil(body){
+        let path = "/user/delete";
+        console.log(body, "body");
+        localStorage.removeItem("jwt")
+        return base.delete(path, {data:body})
     }
 }
 

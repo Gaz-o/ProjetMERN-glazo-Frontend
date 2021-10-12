@@ -1,16 +1,17 @@
 .ImageProfilBackGround {
-    background-image: url("../img/profil.jpg");
+    background-image: url("../../img/profil.jpg");
     width: 1024px;
     height: 720px;
     background-size: cover;
     background-position: center;
+    display: flex;
 }
 
 .ParcheminProfil {
     position: relative;
     top: 30px;
     left: 50px;
-    background-image:  url("../img/parchemin.png");
+    background-image:  url("../../img/parchemin.png");
     background-size: cover;
     background-position: center;
     width: 600px;
@@ -40,7 +41,7 @@
 .BtnProfil {
     width: 100px;
     margin: 0 auto;
-    background-image: url("../img/marbre.jpg");
+    background-image: url("../../img/marbre.jpg");
     padding: 8px;
     border: 2px solid #414042;
     border-radius: 4px;
@@ -60,7 +61,7 @@
 .ProfilDivInput {
     display: flex;
     flex-direction: column;
-    background-image: url("../img/marbre.jpg");
+    background-image: url("../../img/marbre.jpg");
     align-content: center;
     padding: 8px;
     border: 2px solid #414042;
@@ -86,6 +87,34 @@
 }
 
 .BtnProfilConnect {
+    margin: 10px auto 5px;
+    padding: 3px 5px;
+    display: block;
+    background-color: rgba(255, 255, 255, 0.555);
+    text-shadow: blanchedalmond 1px 1px 5px;
+    font-weight: 500;
+    border: 2px solid #414042;
+    border-radius: 6px;
+    box-shadow: 2px 2px 2px black;
+}
+
+.PetitCard {
+    display: flex;
+    flex-direction: column;
+    background-image: url("../../img/marbre.jpg");
+    margin: auto;
+    align-content: center;
+    padding: 8px;
+    border: 2px solid #414042;
+    border-radius: 4px;
+    box-shadow: 2px 2px 2px black;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-weight: 500;
+    text-shadow: blanchedalmond 2px 2px 5px;
+}
+
+.BtnSuppr {
     margin: 10px auto 5px;
     padding: 3px 5px;
     display: block;

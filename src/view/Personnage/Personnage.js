@@ -1,11 +1,11 @@
 import { Redirect } from "react-router";
 import "./Personnage.css"
-import combattant1 from "../img/combattant/combattant1.jpg"
-import combattant2 from "../img/combattant/combattant2.jpg"
-import combattant3 from "../img/combattant/combattant3.jpg"
-import combattant4 from "../img/combattant/combattant4.jpg"
-import combattant5 from "../img/combattant/combattant5.jpg"
-import combattant6 from "../img/combattant/combattant6.jpg"
+import combattant1 from "../../img/combattant/combattant1.jpg"
+import combattant2 from "../../img/combattant/combattant2.jpg"
+import combattant3 from "../../img/combattant/combattant3.jpg"
+import combattant4 from "../../img/combattant/combattant4.jpg"
+import combattant5 from "../../img/combattant/combattant5.jpg"
+import combattant6 from "../../img/combattant/combattant6.jpg"
 
 function Personnage(props) {
 

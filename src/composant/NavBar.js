@@ -4,9 +4,9 @@ import Combat from '../view/Combat';
 import Fame from '../view/Fame';
 import Forge from '../view/Forge';
 import Home from '../view/Home';
-import Connexion from '../view/Log';
-import Personnage from '../view/Personnage';
-import Profil from '../view/Profil';
+import Connexion from '../view/Log/Log';
+import Personnage from '../view/Personnage/Personnage';
+import Profil from '../view/Profil/Profil';
 import "./NavBar.css"
 
 function NavBar() {
@@ -24,9 +24,9 @@ function NavBar() {
     } else {
       setIsConnect(false)
     }
-}, [isConnect]);
+}, [jtw]);
 
-  console.log(jtw);
+  console.log(jtw, "jtw 29 /NavBar");
 
   // recup les info de connection ry setIsConnect
   let connecter
@@ -59,7 +59,7 @@ function NavBar() {
           <Fame connecter={isConnect}/>
         </Route>
         <Route path="/profil">
-          <Profil connecter={isConnect}/>
+          <Profil connecter={isConnect} setIsConnect={setIsConnect}/>
         </Route>
         <Route path="/personnage">
           <Personnage connecter={isConnect}/>

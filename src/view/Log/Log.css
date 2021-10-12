@@ -1,5 +1,5 @@
 .ImageLogBackGround {
-    background-image: url("../img/connection.jpg");
+    background-image: url("../../img/connection.jpg");
     width: 1024px;
     height: 720px;
     background-size: cover;
@@ -10,7 +10,7 @@
     position: relative;
     top: 30px;
     left: 50px;
-    background-image:  url("../img/parchemin.png");
+    background-image:  url("../../img/parchemin.png");
     background-size: cover;
     background-position: center;
     width: 600px;
@@ -40,7 +40,7 @@
 .BtnLog {
     width: 100px;
     margin: 0 auto 20px;
-    background-image: url("../img/marbre.jpg");
+    background-image: url("../../img/marbre.jpg");
     padding: 8px;
     border: 2px solid #414042;
     border-radius: 4px;
@@ -60,7 +60,7 @@
 .LogInput {
     display: flex;
     flex-direction: column;
-    background-image: url("../img/marbre.jpg");
+    background-image: url("../../img/marbre.jpg");
     align-content: center;
     padding: 8px;
     border: 2px solid #414042;

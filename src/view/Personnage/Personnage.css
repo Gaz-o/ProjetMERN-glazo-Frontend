@@ -1,5 +1,5 @@
 .ImagePersonnageBackGround {
-    background-image: url("../img/personnage.jpg");
+    background-image: url("../../img/personnage.jpg");
     width: 1024px;
     height: 720px;
     background-size: cover;
@@ -9,7 +9,7 @@
 .ParcheminPersonnage {
     position: relative;
     left: 50px;
-    background-image:  url("../img/parchemin.png");
+    background-image:  url("../../img/parchemin.png");
     background-size: cover;
     background-position: center;
     width: 720px;
