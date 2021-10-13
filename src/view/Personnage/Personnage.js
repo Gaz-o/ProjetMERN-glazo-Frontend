@@ -1,32 +1,43 @@
 import { Redirect } from "react-router";
 import "./Personnage.css";
-import FeuillePersonnage from "./FeuillePersonnage";
-import CreationPersonnage from "./Creer";
+import FeuillePersonnage from "./VotrePersonnage/FeuillePersonnage";
+import CreationPersonnage from "./CreationPersonnage/CreationPersonnage";
+import { useEffect, useState } from "react";
+import Service from "../../services";
 
 function Personnage(props) {
-  /* personnage {
-        proprietaire:user, 
-        pseudoPersonnage:str,
-        visuel:str,
-        stats{for:num, def:num, agi:num, pv:num}, 
-        bio:str, 
-        equipements{tete:num, torse:num, jambe:num, mainGauche:num, mainDroit:num, reputation:num, argent:num}} */
+  const [Combattant, setCombattant] = useState({});
 
-  /* Condition de redirection */
+  const recupUser = async () => {
+    let result = await Service.getPersonnage();
+    setCombattant(result.data);
+  };
+
+  useEffect(() => {
+    recupUser();
+  }, []);
+
   if (props.connecter !== true) {
     return <Redirect to="/" />;
   }
-
+  
   return (
     <div>
       <div className="ImagePersonnageBackGround">
         <div className="ParcheminPersonnage">
           <div className="HautParchemin">
-            <p className="BtnHautParchemin">Créer</p>
             <p className="BtnHautParchemin">Gerrer</p>
-            <p className="BtnHautParchemin">congédier</p>
+            {Combattant.success ? (
+              <p className="BtnHautParchemin">congédier</p>
+            ) : (
+              <p className="BtnHautParchemin">Créer</p>
+            )}
           </div>
-          <CreationPersonnage />
+          {Combattant.success ? (
+            <FeuillePersonnage Combattant={Combattant.data} />
+          ) : (
+            <CreationPersonnage />
+          )}
           <div className="BasParchemin">
             <p className="BtnBasParchemin">Tombé au combat</p>
             <p className="BtnBasParchemin">le Dernier</p>

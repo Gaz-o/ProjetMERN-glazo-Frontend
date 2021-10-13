@@ -52,10 +52,24 @@ const Service = {
   },
   deleteProfil(body) {
     let path = "/user/delete";
-    console.log(body, "body");
     localStorage.removeItem("jwt");
     return base.delete(path, { data: body });
   },
+  postPersonnage(body) {
+    const token = localStorage.getItem("jwt");
+    const headers = {
+      Authorization: "Bearer " + token,
+    };
+    return base.post("/personnage/add", body, {headers: headers} );
+  },
+  getPersonnage() {
+    const token = localStorage.getItem("jwt");
+    const headers = {
+      Authorization: "Bearer " + token,
+    };
+    return base.get("/personnage/personnageactif", {headers: headers} );
+  }
+
 };
 
 export default Service;
