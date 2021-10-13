@@ -4,9 +4,10 @@ import combattant3 from "../../../img/combattant/combattant3.jpg";
 import combattant4 from "../../../img/combattant/combattant4.jpg";
 import combattant5 from "../../../img/combattant/combattant5.jpg";
 import combattant6 from "../../../img/combattant/combattant6.jpg";
+import Service from "../../../services";
 
-function FeuillePersonnage(props) {
-    
+function CongedierPersonnage(props) {
+
   let choixPersonnages = [
     combattant1,
     combattant2,
@@ -15,6 +16,17 @@ function FeuillePersonnage(props) {
     combattant5,
     combattant6,
   ];
+
+  const btnCongedier = async () => {
+    let body = {
+        proprietaire: props.Combattant.proprietaire,
+      };
+      let congedier = await Service.congedierPersonnage(body);
+      if (congedier.data.success) {
+        props.recupUser()
+        props.setBtnParam("")
+      }
+  }
 
   return (
     <div className="ConteneurPersonnage">
@@ -96,8 +108,9 @@ function FeuillePersonnage(props) {
           </p>
         </div>
       </div>
+      <p className="BtnCongedier" onClick={btnCongedier} >Congedier</p>
     </div>
   );
 }
 
-export default FeuillePersonnage;
+export default CongedierPersonnage;

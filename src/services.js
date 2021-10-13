@@ -68,8 +68,10 @@ const Service = {
       Authorization: "Bearer " + token,
     };
     return base.get("/personnage/personnageactif", {headers: headers} );
+  },
+  congedierPersonnage(body) {
+    return base.put("/personnage/congedier", body)
   }
-
 };
 
 export default Service;

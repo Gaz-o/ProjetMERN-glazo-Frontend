@@ -2,7 +2,7 @@ import { useState } from "react";
 import Service from "../../../services";
 import ChoixImagePersonnage from "./ChoixImagePersonnage";
 
-function StatCreation() {
+function StatCreation(props) {
   const [Text, setText] = useState("");
   const [Choix, setChoix] = useState(0);
   const [StatTotal, setStatTotal] = useState(20);
@@ -25,9 +25,15 @@ function StatCreation() {
           reste: StatTotal,
         },
         bio: Text,
+        vie: StatPV,
+        reputation: StatAgi + StatFor + StatDef + StatPV
       };
-      console.log(body);
       let creationPersonnage = await Service.postPersonnage(body);
+      console.log(creationPersonnage.data.success);
+      if (creationPersonnage.data.success) {
+        props.recupUser()
+        props.setBtnParam("")
+      }
     }
   };
 

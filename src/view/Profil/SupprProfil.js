@@ -19,11 +19,9 @@ function SupprProfil(props) {
       _id: User._id,
     };
     let suppr = await Service.deleteProfil(body);
-    console.log(suppr, "suppr 10 /SupprProfil");
     if (suppr.data.success) {
       props.setIsConnect(false);
       let logout = await Service.postLogout();
-      console.log(logout, "logout 14 /SupprProfil");
     }
   };
   return (
