@@ -3,10 +3,9 @@ import { useState } from "react";
 function ComAffichage(props) {
   const [Down, setDown] = useState(0);
   const [Up, setUp] = useState(4);
-  const [Over, setOver] = useState(false);
 
   let nombres = props.messages.length;
-  let config = nombres -1
+  let config = nombres - 1;
 
   const affichage = () => {
     return props.messages.map((message, key) => {
@@ -16,9 +15,20 @@ function ComAffichage(props) {
     });
   };
 
-  
   function ligne(data) {
-    return <p className="ComAfficher" onMouseEnter={setOver(true)} onMouseLeave={setOver(false)}> {Over ? data["commentaire"]: data["name"]}</p>;
+    const over = (e) => {
+      console.log(e, "dans Over");
+      if (e !== undefined && e.type === "mouseenter") {
+        return true;
+      }
+      return false;
+    };
+
+    return (
+      <p className="ComAfficher" onMouseEnter={(e) => over(e)} onMouseLeave={(e) => over(e)}>
+        {over() ? data["name"] : data["commentaire"]}
+      </p>
+    );
   }
 
   const comPrecedente = () => {
@@ -28,7 +38,7 @@ function ComAffichage(props) {
     } else {
       setDown(config - 4);
       setUp(config + 1);
-      console.log("reset", config );
+      console.log("reset", config);
     }
   };
 
@@ -42,14 +52,14 @@ function ComAffichage(props) {
     }
   };
 
-  console.log(Down, nombres , Up);
+  console.log(Down, nombres, Up);
 
   return (
     <div className="LigneCom">
       <div className="osef" onClick={comPrecedente}>
         <div className="LeftPetitChevron"></div>
       </div>
-      <div className="AffichageCom" >{affichage()}</div>
+      <div className="AffichageCom">{affichage()}</div>
       <div className="osef" onClick={comSuivant}>
         <div className="RightPetitChevron"></div>
       </div>

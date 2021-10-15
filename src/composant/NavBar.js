@@ -38,7 +38,7 @@ function NavBar() {
 
   return (
     <Router>
-    <div>
+    <div className="ContainNavBar">
       <div className="NavBar">
         <Link to="/">Hall des combattants</Link>      
         {isConnect === true ? <Link to="/personnage">Votre combattant</Link>: ""}    
