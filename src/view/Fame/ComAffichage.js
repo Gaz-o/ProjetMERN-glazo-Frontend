@@ -3,6 +3,7 @@ import { useState } from "react";
 function ComAffichage(props) {
   const [Down, setDown] = useState(0);
   const [Up, setUp] = useState(4);
+  const [Hovered, setHovered] = useState(null)
 
   let nombres = props.messages.length;
   let config = nombres - 1;
@@ -10,24 +11,18 @@ function ComAffichage(props) {
   const affichage = () => {
     return props.messages.map((message, key) => {
       if (key >= Down && key <= Up) {
-        return ligne(message, key);
+        return ligne(message, key, setHovered, Hovered);
       } else {
         return null
       }
     });
   };
 
-  function ligne(data, key) {
-    const over = (e) => {
-      if (e !== undefined) {
-        return true;
-      }
-      return false;
-    };
-    
+  function ligne(data, key, setHovered, Hovered) {  
+    let isSelected = Hovered === key
     return (
-      <p key={key} className="ComAfficher" onMouseEnter={(e) => over(e)} onMouseLeave={(e) => over(e)}>
-        {over() ? data["name"] : data["commentaire"]}
+      <p key={key} className="ComAfficher" onMouseEnter={() => setHovered(key)} onMouseLeave={() => setHovered(null)}>
+        {isSelected ? data["name"] : data["commentaire"]}
       </p>
     );
   }
