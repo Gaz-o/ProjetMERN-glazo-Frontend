@@ -6,7 +6,7 @@
 .pnp.js
 
 # dossier IMG
-/src/img
+/src/img/pasutile
 
 # testing
 /coverage
