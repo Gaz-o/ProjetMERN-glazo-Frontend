@@ -22,6 +22,7 @@ function SupprProfil(props) {
     if (suppr.data.success) {
       props.setIsConnect(false);
       let logout = await Service.postLogout();
+      console.log(logout);
     }
   };
   return (

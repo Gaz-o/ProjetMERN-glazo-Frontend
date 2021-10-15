@@ -10,22 +10,23 @@ function ComAffichage(props) {
   const affichage = () => {
     return props.messages.map((message, key) => {
       if (key >= Down && key <= Up) {
-        return ligne(message);
+        return ligne(message, key);
+      } else {
+        return null
       }
     });
   };
 
-  function ligne(data) {
+  function ligne(data, key) {
     const over = (e) => {
-      console.log(e, "dans Over");
-      if (e !== undefined && e.type === "mouseenter") {
+      if (e !== undefined) {
         return true;
       }
       return false;
     };
-
+    
     return (
-      <p className="ComAfficher" onMouseEnter={(e) => over(e)} onMouseLeave={(e) => over(e)}>
+      <p key={key} className="ComAfficher" onMouseEnter={(e) => over(e)} onMouseLeave={(e) => over(e)}>
         {over() ? data["name"] : data["commentaire"]}
       </p>
     );

@@ -21,14 +21,14 @@ function Fame() {
 
   if (Personnages !== "") {
     const affichage = () => {
-      return Personnages.data.data.map((personnage) => {
-        return entre(personnage);
+      return Personnages.data.data.map((personnage, key) => {
+        return entre(personnage, key);
       });
     };
 
-    function entre(data) {
+    function entre(data, key) {
       return (
-        <div className="TableauxLigne">
+        <div key={key} className="TableauxLigne">
           <div className="TableauAffichage">
             <div className="TableauFooter">
               <p className="FameP">{data.pseudoPersonnage}</p>

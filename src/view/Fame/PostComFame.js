@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { setter } from "../../function/function";
 import Service from "../../services";
 
