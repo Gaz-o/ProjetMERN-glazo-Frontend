@@ -1,0 +1,101 @@
+.ImageFameBackGround {
+    background-image: url("../../img/fame.png");
+    width: 1024px;
+    height: 720px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+}
+
+.Tableaux {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.TableauxLigne {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin: -3px 10px;
+    padding: 3px;
+    border: rgba(255, 217, 0, 0.322) 1px solid;
+    border-radius: 25px;
+}
+
+.TableauAffichage {
+    background-image: url("../../img/plaque.png");
+    width: 250px;
+    height: 133px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.TableauFooter {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.FameP {
+    color: cornsilk;
+    text-shadow: black 2px 2px 5px;
+    padding: 2px;
+}
+
+.Bio {
+    word-wrap: break-word;
+    width: 96%;
+}
+
+.PostBTN {
+    background-image: url("../../img/marbre.jpg");
+    align-content: center;
+    margin: 0 auto;
+    padding: 2px;
+    border: 2px solid #414042;
+    border-radius: 4px;
+    box-shadow: 2px 2px 2px black;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-weight: 500;
+    text-shadow: blanchedalmond 2px 2px 5px;
+}
+
+.PostComFame {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    width: 170px;
+}
+
+.TextCom {
+    text-shadow: black 2px 2px 5px;
+    color: white;
+}
+
+.AffichageCom {
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.ComAfficher {
+    margin: auto;
+    padding: 2px;
+    background-color: rgba(0, 0, 0, 0.4);
+    box-shadow: black 1px 1px 3px;
+    color: white;
+    text-shadow: black 1px 1px 4px,black -1px -1px 4px;
+}
+
+.LigneCom {
+    display: flex;
+    width: 500px;
+    justify-content: space-between;
+}

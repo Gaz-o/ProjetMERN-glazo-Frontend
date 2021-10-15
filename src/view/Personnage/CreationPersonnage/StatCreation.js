@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { setter } from "../../../function/function";
 import Service from "../../../services";
 import ChoixImagePersonnage from "./ChoixImagePersonnage";
 
@@ -26,20 +27,17 @@ function StatCreation(props) {
         },
         bio: Text,
         vie: StatPV,
-        reputation: StatAgi + StatFor + StatDef + StatPV
+        reputation: StatAgi + StatFor + StatDef + StatPV,
       };
       let creationPersonnage = await Service.postPersonnage(body);
       console.log(creationPersonnage.data.success);
       if (creationPersonnage.data.success) {
-        props.recupUser()
-        props.setBtnParam("")
+        props.recupUser();
+        props.setBtnParam("");
       }
     }
   };
 
-  const setter = (set, e) => {
-    set(e.target.value);
-  };
   const statDown = (setter, data) => {
     if (data > 0) {
       setStatTotal(StatTotal + 1);
@@ -69,65 +67,41 @@ function StatCreation(props) {
           </div>
           <div className="StatCreerPersonnage">
             <p className="StatCreer">Force: </p>
-            <div
-              className="osef"
-              onClick={() => statDown(setStatFor, StatFor)}
-            >
+            <div className="osef" onClick={() => statDown(setStatFor, StatFor)}>
               <div className="LeftPetitChevron"></div>
             </div>
             <p className="Stat">{StatFor}</p>
-            <div
-              className="osef"
-              onClick={() => statUp(setStatFor, StatFor)}
-            >
+            <div className="osef" onClick={() => statUp(setStatFor, StatFor)}>
               <div className="RightPetitChevron"></div>
             </div>
           </div>
           <div className="StatCreerPersonnage">
             <p className="StatCreer">Defence: </p>
-            <div
-              className="osef"
-              onClick={() => statDown(setStatDef, StatDef)}
-            >
+            <div className="osef" onClick={() => statDown(setStatDef, StatDef)}>
               <div className="LeftPetitChevron"></div>
             </div>
             <p>{StatDef}</p>
-            <div
-              className="osef"
-              onClick={() => statUp(setStatDef, StatDef)}
-            >
+            <div className="osef" onClick={() => statUp(setStatDef, StatDef)}>
               <div className="RightPetitChevron"></div>
             </div>
           </div>
           <div className="StatCreerPersonnage">
             <p className="StatCreer">Agilité: </p>
-            <div
-              className="osef"
-              onClick={() => statDown(setStatAgi, StatAgi)}
-            >
+            <div className="osef" onClick={() => statDown(setStatAgi, StatAgi)}>
               <div className="LeftPetitChevron"></div>
             </div>
             <p>{StatAgi}</p>
-            <div
-              className="osef"
-              onClick={() => statUp(setStatAgi, StatAgi)}
-            >
+            <div className="osef" onClick={() => statUp(setStatAgi, StatAgi)}>
               <div className="RightPetitChevron"></div>
             </div>
           </div>
           <div className="StatCreerPersonnage">
             <p className="StatCreer">Vie: </p>
-            <div
-              className="osef"
-              onClick={() => statDown(setStatPV, StatPV)}
-            >
+            <div className="osef" onClick={() => statDown(setStatPV, StatPV)}>
               <div className="LeftPetitChevron"></div>
             </div>
             <p>{StatPV}</p>
-            <div
-              className="osef"
-              onClick={() => statUp(setStatPV, StatPV)}
-            >
+            <div className="osef" onClick={() => statUp(setStatPV, StatPV)}>
               <div className="RightPetitChevron"></div>
             </div>
           </div>

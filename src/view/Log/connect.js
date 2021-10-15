@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { setter } from "../../function/function";
 import Service from "../../services";
 
 function Connect(props) {
@@ -12,9 +13,6 @@ function Connect(props) {
   let connecter = props.connecter;
   let setIsConnect = props.setIsConnect;
 
-  const setter = (set, e) => {
-    set(e.target.value);
-  };
   const btnCreation = async () => {
     let path = "/user/add";
     let body = {

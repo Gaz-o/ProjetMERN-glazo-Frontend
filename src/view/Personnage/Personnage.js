@@ -1,8 +1,9 @@
 import { Redirect } from "react-router";
 import "./Personnage.css";
+import "./Creer.css";
 import FeuillePersonnage from "./VotrePersonnage/FeuillePersonnage";
-import CreationPersonnage from "./CreationPersonnage/CreationPersonnage";
 import GerrerPersonnage from "./GerrerPersonnage/GerrerPersonnage";
+import StatCreation from "./CreationPersonnage/StatCreation";
 import { useEffect, useState } from "react";
 import Service from "../../services";
 import CongedierPersonnage from "./Autre/Congedier";
@@ -42,7 +43,7 @@ function Personnage(props) {
     } else if (Combattant.success === true) {
       return <FeuillePersonnage Combattant={Combattant.data} />;
     } else if (Combattant.success === false) {
-      return <CreationPersonnage recupUser={recupUser} setBtnParam={setBtnParam} />;
+      return <StatCreation recupUser={recupUser} setBtnParam={setBtnParam} />;
     }
   }
 

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { setter } from "../../function/function";
 import Service from "../../services";
 
 function FormProfil() {
@@ -7,10 +8,6 @@ function FormProfil() {
   const [Age, setAge] = useState("");
   const [Genre, setGenre] = useState("");
   const [Bio, setBio] = useState("");
-
-  const setter = (set, e) => {
-    set(e.target.value);
-  };
 
   const recupUser = async () => {
     let result = await Service.getInfos();

@@ -1,4 +1,5 @@
 import axios from "axios";
+import { tokenHeaders } from "./function/function";
 
 const baseURL = "http://localhost:5000";
 
@@ -40,38 +41,34 @@ const Service = {
         ... et de définir des services spécifiques !
     */
   getInfos() {
-    const token = localStorage.getItem("jwt");
-    const headers = {
-      Authorization: "Bearer " + token,
-    };
-    return base.get("/user/info", { headers: headers });
+    return base.get("/user/info", { headers: tokenHeaders() });
   },
   postLogout() {
     localStorage.removeItem("jwt");
     return base.get("/user/logout");
   },
   deleteProfil(body) {
-    let path = "/user/delete";
     localStorage.removeItem("jwt");
-    return base.delete(path, { data: body });
+    return base.delete("/user/delete", { data: body });
   },
   postPersonnage(body) {
-    const token = localStorage.getItem("jwt");
-    const headers = {
-      Authorization: "Bearer " + token,
-    };
-    return base.post("/personnage/add", body, {headers: headers} );
+    return base.post("/personnage/add", body, { headers: tokenHeaders() });
   },
   getPersonnage() {
-    const token = localStorage.getItem("jwt");
-    const headers = {
-      Authorization: "Bearer " + token,
-    };
-    return base.get("/personnage/personnageactif", {headers: headers} );
+    return base.get("/personnage/personnageactif", { headers: tokenHeaders() });
+  },
+  getPersonnages() {
+    return base.get("/personnage/famepersonnages");
   },
   congedierPersonnage(body) {
-    return base.put("/personnage/congedier", body)
-  }
+    return base.put("/personnage/congedier", body);
+  },
+  postComFame(body) {
+    return base.put("/commentaire/post", body, { headers: tokenHeaders()});
+  },
+  viewComFame(body) {
+    return base.get("/commentaire/view", body);
+  },
 };
 
 export default Service;
@@ -111,7 +108,7 @@ if (process.env.NODE_ENV === "development") {
       return response;
     },
     (err) => {
-        let { config, data, status, statusText } = err.response;
+      let { config, data, status, statusText } = err.response;
       let { method } = config;
       console.log("");
       console.log("\\\\\\\\");

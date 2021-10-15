@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import Combat from '../view/Combat';
-import Fame from '../view/Fame';
+import Fame from '../view/Fame/Fame';
 import Forge from '../view/Forge';
 import Home from '../view/Home';
 import Connexion from '../view/Log/Log';
@@ -56,7 +56,7 @@ function NavBar() {
           <Forge connecter={isConnect}/>
         </Route>
         <Route path="/fame">
-          <Fame connecter={isConnect}/>
+          <Fame />
         </Route>
         <Route path="/profil">
           <Profil connecter={isConnect} setIsConnect={setIsConnect}/>
