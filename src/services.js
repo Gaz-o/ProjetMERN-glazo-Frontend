@@ -1,7 +1,7 @@
 import axios from "axios";
 import { tokenHeaders } from "./function/function";
 
-const baseURL = "http://localhost:5000";
+const baseURL = "https://glazo-back.osc-fr1.scalingo.io" || "http://192.168.1.10:5000";
 
 const base = axios.create({
   baseURL,
